@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calaila Boutique Stay Review</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f7f7f7;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
+.card{background:#fff;max-width:420px;width:92%;padding:30px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.12);text-align:center}
+img{width:150px;margin-bottom:20px}
+h1{color:#0f6b6b;margin:10px 0}
+p{color:#666}
+.star{font-size:48px;cursor:pointer;padding:4px}
+textarea{width:100%;height:140px;border:1px solid #ccc;border-radius:10px;padding:10px;font-size:16px}
+button{background:#0f6b6b;color:#fff;border:none;border-radius:10px;padding:14px 28px;font-size:16px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+<img src="IMG-20260713-WA0000.jpg" onerror="this.style.display='none'">
+<h1>Welcome to Calaila Boutique Stay</h1>
+<p>How was your stay?</p>
+<div>
+<span class="star" onclick="rate(1)">⭐</span>
+<span class="star" onclick="rate(2)">⭐</span>
+<span class="star" onclick="rate(3)">⭐</span>
+<span class="star" onclick="rate(4)">⭐</span>
+<span class="star" onclick="rate(5)">⭐</span>
+</div>
+<p>Your feedback means a lot to us ❤️</p>
+</div>
+<script>
+const GOOGLE_REVIEW="https://search.google.com/local/writereview?placeid=ChIJ1WA0_A3vBTsR98Lss-FfdZY";
+function rate(r){
+ if(r===5){
+   document.getElementById("card").innerHTML="<h1>❤️ Thank You!</h1><p>Redirecting you to Google Reviews...</p>";
+   setTimeout(()=>location.href=GOOGLE_REVIEW,1200);
+ }else{
+   document.getElementById("card").innerHTML='<h2>Thank you for your feedback</h2><p>Please tell us how we can improve.</p><textarea placeholder="Your feedback..."></textarea><br><br><button onclick="thanks()">Submit</button>';
+ }
+}
+function thanks(){
+ document.getElementById("card").innerHTML="<h1>❤️ Thank You</h1><p>Your feedback has been received.</p>";
+}
+</script>
+</body>
+</html>
